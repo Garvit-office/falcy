@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Floresta — Interactive Garden</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar__brand">
+      <img src="assets/logo.png" alt="logo" class="navbar__logo"/>
+      <span class="navbar__title">Floresta</span>
+    </div>
+    <nav class="navbar__links">
+      <a href="#">Home</a>
+      <a href="#">Garden</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+
+  <!-- Sky + Grassland -->
+  <section class="hero-sky">
+    <div class="sky">
+      <div class="sun"></div>
+      <div class="cloud cloud--1"></div>
+      <div class="cloud cloud--2"></div>
+      <div class="cloud cloud--3"></div>
+      <div class="rain"></div>
+    </div>
+
+    <!-- Controls overlay -->
+    <div class="controls-overlay card">
+      <h2>Controls</h2>
+      <div class="controls__grid">
+        <button id="btnWater" class="pill">💧 Water</button>
+        <button id="btnFertilizer" class="pill">🧪 Fertilizer</button>
+        <button id="btnReset" class="pill pill--ghost">↺ Reset</button>
+      </div>
+      <div class="divider"></div>
+      <label for="weatherSelect">Weather:</label>
+      <select id="weatherSelect">
+        <option value="sunny">Sunny</option>
+        <option value="cloudy">Cloudy</option>
+        <option value="rainy">Rainy</option>
+        <option value="night">Night</option>
+      </select>
+    </div>
+
+    <!-- Grassland -->
+    <svg class="grassland" viewBox="0 0 100 20" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="grass-gradient" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#32CD32"/>
+          <stop offset="100%" stop-color="#006400"/>
+        </linearGradient>
+      </defs>
+      <path d="M0 20 Q 25 15, 50 20 T 100 20 L100 20 L0 20 Z" class="ground"/>
+    </svg>
+
+    <!-- Plant -->
+    <div class="hero-plant">
+      <svg class="plant" viewBox="0 0 200 240" role="img" aria-label="Plant">
+        <!-- Stem -->
+        <path d="M100 210 C 100 200, 98 190, 100 180 S 102 150, 100 130 S 98 90, 100 60" class="stem"/>
+        <!-- Leaves -->
+        <path d="M100 170 C 60 160, 60 140, 100 150" class="leaf leaf--left"/>
+        <path d="M100 150 C 140 140, 140 120, 100 130" class="leaf leaf--right"/>
+        <path d="M100 120 C 60 110, 60 90, 100 100" class="leaf leaf--left"/>
+        <path d="M100 95 C 140 85, 140 70, 100 80" class="leaf leaf--right"/>
+        <!-- Flower -->
+        <g class="flower">
+          <circle cx="100" cy="50" r="10" class="flower__center"/>
+          <g class="petals">
+            <circle cx="100" cy="34" r="10" />
+            <circle cx="116" cy="42" r="10" />
+            <circle cx="116" cy="58" r="10" />
+            <circle cx="100" cy="66" r="10" />
+            <circle cx="84" cy="58" r="10" />
+            <circle cx="84" cy="42" r="10" />
+          </g>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Sidebar + Plots -->
+  <main class="content">
+    <aside class="sidebar card">
+      <h2>Flower Menu</h2>
+      <div class="menu-grid">
+        <button class="menu-item">🌻 Sunflower</button>
+        <button class="menu-item">🌹 Rose</button>
+        <button class="menu-item">🌷 Tulip</button>
+        <button class="menu-item">🪷 Lotus</button>
+      </div>
+    </aside>
+    <section class="plots card">
+      <h2>Your Plots</h2>
+      <div class="plots-grid">
+        <div class="plot" data-plot="A"></div>
+        <div class="plot" data-plot="B"></div>
+        <div class="plot" data-plot="C"></div>
+        <div class="plot" data-plot="D"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© <span id="year"></span> Florista · Built for learning</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
